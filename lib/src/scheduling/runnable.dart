@@ -42,17 +42,17 @@ class Runnable<A, B, C, D, O, T> {
     final fun3 = this.fun3;
     final fun4 = this.fun4;
 
-    if (arg1 != null && fun1 != null) {
-      return fun1(arg1, sendPort);
+    if (fun1 != null) {
+      return fun1(arg1 as A, sendPort);
     }
-    if (arg1 != null && arg2 != null && fun2 != null) {
-      return fun2(arg1, arg2, sendPort);
+    if (fun2 != null) {
+      return fun2(arg1 as A, arg2 as B, sendPort);
     }
-    if (arg1 != null && arg2 != null && arg3 != null && fun3 != null) {
-      return fun3(arg1, arg2, arg3, sendPort);
+    if (fun3 != null) {
+      return fun3(arg1 as A, arg2 as B, arg3 as C, sendPort);
     }
-    if (arg1 != null && arg2 != null && arg3 != null && arg4 != null && fun4 != null) {
-      return fun4(arg1, arg2, arg3, arg4, sendPort);
+    if (fun4 != null) {
+      return fun4(arg1 as A, arg2 as B, arg3 as C, arg4 as D, sendPort);
     }
     throw ArgumentError("execute method arguments of function miss match");
   }
